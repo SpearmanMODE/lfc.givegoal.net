@@ -1,45 +1,66 @@
-// src/app/dashboard/page.tsx
-"use client";
-
-import { useState } from "react";
+// File: src/app/dashboard/page.tsx
+import Image from "next/image";
 
 export default function Dashboard() {
-  const tabs = ["Campaigns", "Rewards", "Badges", "Impact"];
-  const [active, setActive] = useState(tabs[0]);
-
   return (
-    <main className="p-6 text-white">
-      <h1 className="text-2xl font-bold mb-4">Your GiveGoal Dashboard</h1>
+    <div className="min-h-screen bg-black text-white p-8 space-y-10">
+      <h1 className="text-3xl font-bold text-center text-red-500">
+        Your GiveGoal Dashboard
+      </h1>
 
-      <div className="flex gap-3 mb-6">
-        {tabs.map((t) => (
-          <button
-            key={t}
-            onClick={() => setActive(t)}
-            className={`px-4 py-2 rounded-full font-semibold ${
-              active === t
-                ? "bg-red-600 text-white"
-                : "bg-white text-black"
-            }`}
-          >
-            {t}
-          </button>
-        ))}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* Campaign Card 1 */}
+        <div className="bg-neutral-900 p-6 rounded-lg shadow space-y-4">
+          <h2 className="text-xl font-bold text-white">🌍 Walk to Anfield</h2>
+          <p className="text-sm text-gray-300">
+            Fans pledged to walk or bike to the match instead of driving. You earned 50 Impact Points!
+          </p>
+          <p className="text-green-400 text-sm">CO₂ Saved: 2.4kg</p>
+        </div>
+
+        {/* Campaign Card 2 */}
+        <div className="bg-neutral-900 p-6 rounded-lg shadow space-y-4">
+          <h2 className="text-xl font-bold text-white">♻️ Plastic-Free Challenge</h2>
+          <p className="text-sm text-gray-300">
+            Fans pledged to avoid single-use plastics this week. 40,000 bottles diverted from landfills!
+          </p>
+          <p className="text-green-400 text-sm">Impact Points: 75</p>
+        </div>
+
+        {/* Campaign Card 3 */}
+        <div className="bg-neutral-900 p-6 rounded-lg shadow space-y-4">
+          <h2 className="text-xl font-bold text-white">🧤 Halftime PK Game</h2>
+          <p className="text-sm text-gray-300">
+            You powered up the LFC striker with $3 in matched donations. Goal scored! +100 Fan Cash.
+          </p>
+          <p className="text-yellow-400 text-sm">Matched Donations: £5.00</p>
+        </div>
+
+        {/* Campaign Card 4 */}
+        <div className="bg-neutral-900 p-6 rounded-lg shadow space-y-4">
+          <h2 className="text-xl font-bold text-white">🤝 Volunteer Impact</h2>
+          <p className="text-sm text-gray-300">
+            You pledged 2 hours at your local food bank. That’s equivalent to 60 meals served.
+          </p>
+          <p className="text-green-400 text-sm">Points Earned: 120</p>
+        </div>
+
+        {/* Campaign Card 5 */}
+        <div className="bg-neutral-900 p-6 rounded-lg shadow space-y-4">
+          <h2 className="text-xl font-bold text-white">🎁 Invite & Multiply</h2>
+          <p className="text-sm text-gray-300">
+            You invited 3 friends to GiveGoal. 2 accepted and made a pledge. Ripple activated!
+          </p>
+          <p className="text-blue-400 text-sm">Ripple Impact Bonus: 30</p>
+        </div>
       </div>
 
-      <section className="bg-white text-black rounded-lg p-4 min-h-[200px]">
-        <p className="text-lg font-medium">{active} (mock data)</p>
-      </section>
-
-      <div className="mt-10 text-center">
-        <a
-          href="/matchday-pk"
-          className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full"
-        >
-          Matchday PK
-        </a>
+      <div className="text-center pt-10">
+        <p className="text-sm text-gray-400">
+          Dashboard is mock-only for demo purposes.
+        </p>
       </div>
-    </main>
+    </div>
   );
 }
 
