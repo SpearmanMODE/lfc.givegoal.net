@@ -1,56 +1,63 @@
 // src/app/login/page.tsx
-'use client';
 
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const router = useRouter();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Mock login logic (always succeeds)
+    // Mock authentication
     if (username && password) {
-      router.push('/intro'); // Redirect after "login"
+      router.push("/intro"); // Redirect to /intro on success
+    } else {
+      alert("Please enter a username and password.");
     }
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center text-white px-6">
+    <main className="flex items-center justify-center min-h-screen bg-black text-white px-4">
       <form
         onSubmit={handleLogin}
-        className="bg-gray-900 p-8 rounded-lg w-full max-w-sm shadow-lg space-y-6"
+        className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md space-y-6"
       >
-        <h1 className="text-2xl font-bold text-center">Client Login</h1>
+        <h1 className="text-2xl font-bold text-center">GiveGoal Login</h1>
 
-        <input
-          type="text"
-          placeholder="Username"
-          className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-700"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+        <div>
+          <label className="block mb-1 font-semibold">Username</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="w-full p-3 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none"
+            placeholder="Enter your username"
+          />
+        </div>
 
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-700"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div>
+          <label className="block mb-1 font-semibold">Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none"
+            placeholder="Enter your password"
+          />
+        </div>
 
         <button
           type="submit"
-          className="w-full bg-red-600 hover:bg-red-700 py-2 rounded text-white font-bold"
+          className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded font-bold"
         >
           Log In
         </button>
       </form>
-    </div>
+    </main>
   );
 }
+
