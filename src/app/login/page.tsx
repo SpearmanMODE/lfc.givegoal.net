@@ -18,7 +18,7 @@ export default function LoginPage() {
     if (username === "fan" && password === "lfc") {
       router.push("/intro");
     } else {
-      setError("Invalid credentials. Try fan / lfc.");
+      setError("Invalid login. Please try again.");
     }
   };
 
