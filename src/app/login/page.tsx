@@ -1,11 +1,7 @@
-console.log("Rendering Login Page");
+// src/app/login/page.tsx
 
 export default function Login() {
-  return (
-    <div style={{ color: "white", padding: "2rem" }}>
-      ✅ Login route is rendering
-    </div>
-  );
+  return <div style={{ color: "white", padding: "2rem" }}>✅ Login page renders.</div>;
 }
 
 
