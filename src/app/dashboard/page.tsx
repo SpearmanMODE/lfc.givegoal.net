@@ -1,5 +1,6 @@
 // File: src/app/dashboard/page.tsx
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Dashboard() {
   return (
@@ -56,11 +57,18 @@ export default function Dashboard() {
       </div>
 
       <div className="text-center pt-10">
-        <p className="text-sm text-gray-400">
+        <Link href="/game">
+          <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full">
+            🚀 Launch MATCHDAY-PK Game
+          </button>
+        </Link>
+
+        <p className="text-sm text-gray-400 mt-4">
           Dashboard is mock-only for demo purposes.
         </p>
       </div>
     </div>
   );
 }
+
 
